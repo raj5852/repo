@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\DataStoreController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StockController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +20,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::post('store',[DataStoreController::class,'index'])->name('store');
+Route::view('data-output','output');
+Route::post('ajax',[DataStoreController::class,'ajax']);
+
+Route::post('sale',[SaleController::class,'index']);
+Route::get('stock',[StockController::class,'index']);
